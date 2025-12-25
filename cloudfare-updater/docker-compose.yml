@@ -1,0 +1,10 @@
+version: '2'
+services:
+  cloudflare-ddns:
+    image: oznu/cloudflare-ddns:latest
+    restart: always
+    environment:
+      - API_KEY=XL0qtFXmyloQzdqtPyvkii6clduB21GzqkWStj-n
+      - ZONE=diegohernandezdev.com
+      - SUBDOMAIN=pangolin
+      - PROXIED=false
