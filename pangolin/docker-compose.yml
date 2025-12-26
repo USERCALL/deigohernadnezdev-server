@@ -81,9 +81,9 @@ services:
     image: docker.io/traefik:v3.6
     network_mode: service:gerbil
     restart: unless-stopped
+    environment:
+      CLOUDFLARE_DNS_API_TOKEN: "XKNqWGlKNR_8x4ZMTqxPWMe91aAyBnco9Xba4mvB"
     volumes:
       - ./config/traefik:/etc/traefik:ro
       - ./config/letsencrypt:/letsencrypt
       - ./config/traefik/logs:/var/log/traefik
-    environment:
-      CLOUDFLARE_DNS_API_TOKEN: "XKNqWGlKNR_8x4ZMTqxPWMe91aAyBnco9Xba4mvB"

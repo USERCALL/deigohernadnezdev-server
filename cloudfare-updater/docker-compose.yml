@@ -8,3 +8,19 @@ services:
       - ZONE=diegohernandezdev.com
       - SUBDOMAIN=pangolin
       - PROXIED=false
+  cloudflare-ddns-immich:
+    image: oznu/cloudflare-ddns:latest
+    restart: always
+    environment:
+      - API_KEY=XL0qtFXmyloQzdqtPyvkii6clduB21GzqkWStj-n
+      - ZONE=diegohernandezdev.com
+      - SUBDOMAIN=immich
+      - PROXIED=false
+  cloudflare-ddns-test:
+    image: oznu/cloudflare-ddns:latest
+    restart: always
+    environment:
+      - API_KEY=XL0qtFXmyloQzdqtPyvkii6clduB21GzqkWStj-n
+      - ZONE=diegohernandezdev.com
+      - SUBDOMAIN=test
+      - PROXIED=false
