@@ -14,8 +14,6 @@ app:
 domains:
     domain1:
         base_domain: "diegohernandezdev.com"
-        cert_resolver: "letsencrypt" # Or your chosen resolver
-        prefer_wildcard_cert: true # This is where you put it
 
 server:
     secret: "w7fuiOnzKbrVuOmd3QpNFUxkezGgpBow"
@@ -31,3 +29,4 @@ flags:
     disable_signup_without_invite: true
     disable_user_create_org: false
     allow_raw_resources: true
+    prefer_wildcard_cert: true # This is where you put it

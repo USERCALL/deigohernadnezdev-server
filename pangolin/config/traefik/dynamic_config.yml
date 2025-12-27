@@ -84,6 +84,10 @@ http:
       service: next-service
       tls:
         certResolver: letsencrypt
+        domains:
+        - main: "diegohernandezdev.com"
+          sans:
+            - "*.diegohernandezdev.com"
     ws-router:
       entryPoints:
         - websecure

@@ -41,11 +41,16 @@ api:
 certificatesResolvers:
   letsencrypt:
     acme:
-      caServer: https://acme-v02.api.lsetsencrypt.org/directory
-      email: tech@diegohernandezdev.com
+      caServer: https://acme-v02.api.letsencrypt.org/directory
+      #caServer: https://acme-staging-v02.api.letsencrypt.org/directory # Usar solo para pruebas
+      email: usercall.hm@gmail.com
+      #email: tech@diegohernandezdev.com
       dnsChallenge:
-        # see https://doc.traefik.io/traefik/https/acme/#providers
-        provider: "cloudflare" # your DNS provider
+        provider: cloudflare  # O tu proveedor: route53, namecheap, digitalocean...
+        delayBeforeCheck: 4   # Espera opcional para propagación DNS (0 suele ir bien con Cloudflare)
+        resolvers:
+          - "1.1.1.1:53"
+          - "8.8.8.8:53"
       storage: /letsencrypt/acme.json
 entryPoints:
   web:
@@ -71,7 +76,7 @@ experimental:
 log:
   compress: true
   format: json
-  level: INFO
+  level: INFO 
   maxAge: 3
   maxBackups: 3
   maxSize: 100

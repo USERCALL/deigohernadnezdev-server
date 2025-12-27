@@ -72,6 +72,7 @@ services:
   traefik:
     command:
       - --configFile=/etc/traefik/traefik_config.yml
+      - --certificatesresolvers.letsencrypt.acme.dnschallenge=true
     container_name: traefik
     depends_on:
       crowdsec:
@@ -82,6 +83,7 @@ services:
     network_mode: service:gerbil
     restart: unless-stopped
     environment:
+      #CF_DNS_API_TOKEN: "XKNqWGlKNR_8x4ZMTqxPWMe91aAyBnco9Xba4mvB"
       CLOUDFLARE_DNS_API_TOKEN: "XKNqWGlKNR_8x4ZMTqxPWMe91aAyBnco9Xba4mvB"
     volumes:
       - ./config/traefik:/etc/traefik:ro
